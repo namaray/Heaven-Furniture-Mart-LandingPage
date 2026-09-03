@@ -539,16 +539,17 @@ h2 {
   background: linear-gradient(180deg, var(--ivory) 0%, var(--ivory-deep) 100%);
 }
 
-/* Team photo confined to a zone under the heading column, now on the right
-   (see .why__inner below). It never shares a column with the list — that
-   text is always on plain ivory regardless of how visible the photo is.
-   Vertical fade, not horizontal: strong protection immediately behind the
-   eyebrow+heading text at the top, relaxing further down the column, since
-   nothing but empty ivory used to live down there anyway — that's where the
-   photo gets to actually show. */
+/* Team photo confined to a zone under the heading column, back on the left
+   (see .why__inner below — this was briefly moved to the right and is now
+   reverted). It never shares a column with the list — that text is always
+   on plain ivory regardless of how visible the photo is. Vertical fade, not
+   horizontal: strong protection immediately behind the eyebrow+heading text
+   at the top, relaxing further down the column, since nothing but empty
+   ivory used to live down there anyway — that's where the photo gets to
+   actually show. */
 .why__bg {
   position: absolute;
-  inset: 0 0 0 auto;
+  inset: 0 auto 0 0;
   z-index: 0;
   width: 42%;
   overflow: hidden; /* clips the img's scale(1.05) — without this, that
@@ -589,17 +590,14 @@ h2 {
   position: relative;
   z-index: 1;
   display: grid;
-  /* wide track first, narrow second — .why__list (order 1) lands in the
-     wide one, .why__head (order 2) in the narrow one, putting the heading
-     and its photo on the right without reordering the markup itself */
-  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  /* narrow track first, wide second — matches DOM order (heading, then
+     list), so no `order` override is needed here; the mobile breakpoint
+     below still sets order:0 explicitly, which is now a no-op left over
+     from when this was briefly mirrored to the right, but harmless. */
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
   gap: clamp(2rem, 5vw, 4rem);
   align-items: start;
 }
-/* Visual-only reorder: DOM keeps heading before list (a screen reader still
-   meets the heading first), CSS repaints it on the right. */
-.why__list { order: 1; }
-.why__head { order: 2; }
 .why__head h2 { max-width: 16ch; }
 
 /* Trimmed from 7 dense text blocks to 4, and from a 2x2 grid to a single
@@ -645,8 +643,7 @@ h2 {
 @media (max-width: 760px) {
   .why__bg { display: none; }
   .why__inner { grid-template-columns: 1fr; }
-  .why__head { order: 0; margin-bottom: 0.5rem; }
-  .why__list { order: 0; }
+  .why__head { margin-bottom: 0.5rem; }
 }
 
 /* --------------------------------------------------------------------------

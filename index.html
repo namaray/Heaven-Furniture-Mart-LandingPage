@@ -147,11 +147,10 @@
 
   <!-- ────────────────────────  WHY CHOOSE US  ──────────────────────── -->
   <!-- Team photo from the International Furniture Fair booth (matches the
-       milestone below) sits veiled behind the heading column on the right.
-       Visually reordered via CSS `order` rather than swapping the markup, so
-       a screen reader still meets the heading before the list it introduces.
-       The list column stays on plain ivory throughout — the photo never
-       shares a column with its dense body copy. -->
+       milestone below) sits veiled behind the heading column on the left —
+       natural DOM/grid order, no `order` override needed. The list column
+       stays on plain ivory throughout — the photo never shares a column
+       with its dense body copy. -->
   <section class="section why">
     <div class="why__bg" aria-hidden="true">
       <img src="assets/img/why-staff.jpg" width="1200" height="996"
