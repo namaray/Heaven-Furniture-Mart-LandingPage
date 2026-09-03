@@ -579,6 +579,11 @@ h2 {
    10. Why choose — trust points
    -------------------------------------------------------------------------- */
 
+/* Eases into .bespoke's solid ivory-deep directly below — this section now
+   sits right before it, so it inherited the transition .collections used to
+   carry when the order was intro -> why -> collections -> bespoke. */
+.why { background: linear-gradient(180deg, var(--ivory) 0%, var(--ivory-deep) 100%); }
+
 .trust {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
@@ -613,7 +618,10 @@ h2 {
    11. Collections
    -------------------------------------------------------------------------- */
 
-.collections { background: linear-gradient(180deg, var(--ivory) 0%, var(--ivory-deep) 100%); }
+/* No background override: now sandwiched between two plain-ivory sections
+   (intro before, why after), so it stays plain too. The gradient that used to
+   live here moved to .why below — its job was easing into .bespoke's solid
+   ivory-deep, and .why is what sits directly before .bespoke now. */
 
 .grid-collections {
   display: grid;
