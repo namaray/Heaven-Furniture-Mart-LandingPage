@@ -543,13 +543,45 @@ h2 {
   grid-template-columns: minmax(0, 3fr) minmax(0, 8fr);
   gap: clamp(2rem, 5vw, 5rem);
 }
+/* Fills what was previously a near-empty column beside the body copy: the
+   eyebrow, the real brand mark, then a small founding line. The mark keeps
+   its own dark teal card — that's the client's official logo colour, not
+   invented for this page, so it's left as supplied rather than re-toned to
+   match --charcoal. */
+.split__label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.75rem;
+}
 .split__label .eyebrow { margin-bottom: 0; }
+
+.split__logo {
+  width: 100%;
+  max-width: 15rem;
+  height: auto;
+  border-radius: 2px;
+}
+
+.split__est { display: flex; flex-direction: column; gap: 0.3rem; }
+.split__est-year {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  color: var(--brown);
+}
+.split__est-place {
+  font-size: 0.8125rem;
+  color: var(--brown-soft);
+}
+
 .split__body h2 { margin-bottom: 1.75rem; max-width: 22ch; }
 .split__body .lede { margin-bottom: 1.5rem; }
 .split__body p:not(.lede) { color: var(--brown-soft); max-width: 58ch; }
 
 @media (max-width: 780px) {
   .split { grid-template-columns: 1fr; gap: 1.5rem; }
+  .split__label { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.75rem; }
+  .split__logo { max-width: 11rem; }
 }
 
 /* --------------------------------------------------------------------------

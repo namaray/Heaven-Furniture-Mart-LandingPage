@@ -18,6 +18,7 @@ and the filename printed inside it, so you can see at a glance what is still mis
 | 5 | `collection-office.jpg` | 918 × 918 | 1:1 | in place, **weak** | Modern white desk. Cool grey daylight — clashes with the warm set beside it. Low resolution (1080px source, heavily compressed). Worth replacing. |
 | 6 | ~~`bespoke-1.jpg`~~ | — | — | **replaced by video** | The bespoke slot is now a self-hosted 9:16 clip, not a photo. See the Video table below. |
 | 7 | `proof-showroom.jpg` | 1600 × 1066 | 3:2 | in place | The showroom **building** — red signage, furniture visible through both window rows. Cropped from the original to drop the pavement rubble and the neighbouring alley. Slot ratio changed 8:5 → 3:2 to match the crop. |
+| 8 | `logo-mark.png` | 528 × 196 | ~2.69:1 | in place | The real Heaven Furniture Mart logo, in the "Who We Are" section's left column (previously near-empty). Trimmed from `source-images/heavenfurniturelogo.jpg` (a 1024×1024 tile with a lot of dead space around the mark) with a safety margin so no letter touches the crop edge. The dark teal card is the client's own brand colour, kept as supplied rather than re-toned to the page's `--charcoal`. |
 
 The collection cards were switched from the originally planned 4:5 portrait to **1:1
 square** to match the supplied photography — those compositions run edge to edge, so
