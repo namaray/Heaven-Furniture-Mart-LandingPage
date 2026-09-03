@@ -524,76 +524,32 @@ h2 {
 }
 
 /* --------------------------------------------------------------------------
-   9. Brand intro
+   9. (formerly Brand intro — removed; folded into Social Proof, see §13)
    -------------------------------------------------------------------------- */
-
-.intro { border-top: 1px solid var(--rule); margin-top: var(--section); }
-
-.split {
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 8fr);
-  gap: clamp(2rem, 5vw, 5rem);
-}
-/* Fills what was previously a near-empty column beside the body copy: the
-   eyebrow, the real brand mark, then a small founding line. The mark keeps
-   its own dark teal card — that's the client's official logo colour, not
-   invented for this page, so it's left as supplied rather than re-toned to
-   match --charcoal. */
-.split__label {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.75rem;
-}
-.split__label .eyebrow { margin-bottom: 0; }
-
-.split__logo {
-  width: 100%;
-  max-width: 15rem;
-  height: auto;
-  border-radius: 2px;
-}
-
-.split__est { display: flex; flex-direction: column; gap: 0.3rem; }
-.split__est-year {
-  font-family: var(--display);
-  font-size: 1.5rem;
-  color: var(--brown);
-}
-.split__est-place {
-  font-size: 0.8125rem;
-  color: var(--brown-soft);
-}
-
-.split__body h2 { margin-bottom: 1.75rem; max-width: 22ch; }
-.split__body .lede { margin-bottom: 1.5rem; }
-.split__body p:not(.lede) { color: var(--brown-soft); max-width: 58ch; }
-
-@media (max-width: 780px) {
-  .split { grid-template-columns: 1fr; gap: 1.5rem; }
-  .split__label { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.75rem; }
-  .split__logo { max-width: 11rem; }
-}
 
 /* --------------------------------------------------------------------------
    10. Why choose — trust points
    -------------------------------------------------------------------------- */
 
-/* Eases into .bespoke's solid ivory-deep directly below — this section now
-   sits right before it, so it inherited the transition .collections used to
-   carry when the order was intro -> why -> collections -> bespoke. */
+/* Eases into .bespoke's solid ivory-deep directly below — this section sits
+   right before it in the current order (Collections -> Why -> Bespoke). */
 .why { background: linear-gradient(180deg, var(--ivory) 0%, var(--ivory-deep) 100%); }
 
+/* Trimmed from 7 dense text blocks to 4 — explicit 2x2 rather than
+   auto-fit, since auto-fit would produce an uneven 3-then-1 row at some
+   widths with exactly four items. Headings moved to Cormorant at card-title
+   size (matching .card h3 in Collections) instead of small bold sans, so
+   each point has real presence instead of reading as a spec-sheet bullet. */
 .trust {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.75rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 4vw, 3.5rem);
 }
 
-.trust__item { padding-top: 1.5rem; border-top: 1px solid var(--rule-brass); }
+.trust__item { padding-top: 1.75rem; border-top: 1px solid var(--rule-brass); }
 .trust__num {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 1.1rem;
   font-family: var(--body);
   font-size: 0.6875rem;
   font-weight: 500;
@@ -601,27 +557,36 @@ h2 {
   color: var(--brass-text);
 }
 .trust__item h3 {
-  margin-bottom: 0.6rem;
-  font-family: var(--body);
-  font-size: var(--t-h3);
-  font-weight: 600;
-  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  font-family: var(--display);
+  font-size: 1.75rem;
+  font-weight: 400;
+  line-height: 1.25;
   color: var(--brown);
 }
 .trust__item p {
   font-size: var(--t-small);
-  line-height: 1.65;
+  line-height: 1.7;
+  max-width: 30rem;
   color: var(--brown-soft);
+}
+
+@media (max-width: 620px) {
+  .trust { grid-template-columns: 1fr; }
 }
 
 /* --------------------------------------------------------------------------
    11. Collections
    -------------------------------------------------------------------------- */
 
-/* No background override: now sandwiched between two plain-ivory sections
-   (intro before, why after), so it stays plain too. The gradient that used to
-   live here moved to .why below — its job was easing into .bespoke's solid
-   ivory-deep, and .why is what sits directly before .bespoke now. */
+/* Direct child of Hero now (the old Brand Intro section used to sit between
+   them), so it inherits that section's job of marking where photo ends and
+   page content begins. No background override otherwise: sandwiched between
+   Hero above and Why below, both effectively ivory, so it stays plain too.
+   The gradient that used to live here moved to .why — its job was easing
+   into .bespoke's solid ivory-deep, and .why sits directly before .bespoke
+   now (Collections -> Why -> Bespoke). */
+.collections { border-top: 1px solid var(--rule); margin-top: var(--section); }
 
 .grid-collections {
   display: grid;
@@ -840,6 +805,30 @@ h2 {
 /* --------------------------------------------------------------------------
    13. Social proof
    -------------------------------------------------------------------------- */
+
+/* Masthead strip: what used to be its own "Who We Are" section, now a
+   compact lead-in above the MD quote rather than a second thin section of
+   its own. Deliberately not a big headline moment — a small eyebrow line and
+   one paragraph, sized like the .lede used elsewhere, not a display h2 —
+   so it doesn't compete with the quote below for the section's one big
+   serif moment. */
+.proof__intro {
+  padding-bottom: clamp(3rem, 6vw, 4.5rem);
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+  border-bottom: 1px solid var(--rule);
+}
+.proof__intro-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.75rem, 4vw, 3rem);
+}
+.proof__intro-logo { flex: none; height: 3.5rem; width: auto; }
+.proof__intro-meta { margin-bottom: 0.75rem; }
+.proof__intro-copy { max-width: 46rem; color: var(--brown); }
+
+@media (max-width: 640px) {
+  .proof__intro-row { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+}
 
 .quote {
   max-width: 52rem;
@@ -1107,6 +1096,16 @@ h2 {
   font-size: 0.8125rem;
   font-style: italic;
   color: rgba(246, 242, 234, 0.55);
+}
+/* Three of the seven trust points cut from Why Choose landed here — a quiet
+   footer mention rather than dropped entirely. Deliberately not italic
+   (the tagline above already owns that treatment) and no max-width — it
+   wraps naturally within the brand column same as the tagline does. */
+.site-footer__note {
+  margin-top: 0.85rem;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: rgba(246, 242, 234, 0.55); /* 0.5 measured 4.41:1 on charcoal — below AA */
 }
 .site-footer__h {
   margin-bottom: 1rem;

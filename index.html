@@ -94,36 +94,6 @@
     </div>
   </section>
 
-  <!-- ─────────────────────────  BRAND INTRO  ───────────────────────── -->
-  <section class="section intro" id="story">
-    <div class="shell split">
-      <div class="split__label">
-        <p class="eyebrow reveal">Who we are</p>
-        <img class="split__logo reveal" src="assets/img/logo-mark.png" width="528" height="196"
-             loading="lazy" decoding="async" onerror="this.hidden=true"
-             alt="Heaven Furniture Mart logo">
-        <p class="split__est reveal">
-          <span class="split__est-year">Est. 2020</span>
-          <span class="split__est-place">Chattogram, Bangladesh</span>
-        </p>
-      </div>
-      <div class="split__body">
-        <h2 class="reveal">One of Chattogram's leading bespoke furniture houses.</h2>
-        <p class="lede reveal">
-          Heaven Furniture Mart designs and crafts custom furniture — sofas, beds,
-          dining sets, office pieces — built around what you actually want, rather
-          than pulled off a shelf.
-        </p>
-        <p class="reveal">
-          Founded in 2020 by Managing Director Abul Kalam Bhuiyan, we work from our own
-          showroom and workshop on Agrabad Access Road, pairing premium wood and materials
-          with skilled in-house craftsmanship. Every commission starts the same way: a
-          conversation about the room you are actually living in.
-        </p>
-      </div>
-    </div>
-  </section>
-
   <!-- ─────────────────────────  COLLECTIONS  ───────────────────────── -->
   <section class="section collections" id="collections">
     <div class="shell">
@@ -180,44 +150,34 @@
     <div class="shell">
       <div class="section-head">
         <p class="eyebrow reveal">Why choose Heaven</p>
-        <h2 class="reveal">Seven reasons homeowners in Chattogram come to us.</h2>
+        <h2 class="reveal">Reasons homeowners in Chattogram come to us.</h2>
       </div>
 
+      <!-- Trimmed from 7 equal-weight bullets to the 4 that don't already
+           appear elsewhere on the page: consultation is in the hero's own
+           supporting line, payment terms and "hundreds of homeowners" moved
+           to a footer note, and "hundreds" specifically would have doubled
+           up on the stat already called out in Social Proof below. -->
       <ul class="trust">
         <li class="trust__item reveal">
           <span class="trust__num">01</span>
-          <h3>Free design consultation</h3>
-          <p>Sit with us, talk through the space, and leave with a plan — before you spend anything.</p>
-        </li>
-        <li class="trust__item reveal">
-          <span class="trust__num">02</span>
           <h3>Fully bespoke</h3>
           <p>Built to your space and your measurements. Never mass-produced, never one-size-fits-all.</p>
         </li>
         <li class="trust__item reveal">
-          <span class="trust__num">03</span>
+          <span class="trust__num">02</span>
           <h3>Premium wood &amp; materials</h3>
           <p>Selected stock worked by skilled in-house craftsmen, not outsourced down the line.</p>
         </li>
         <li class="trust__item reveal">
-          <span class="trust__num">04</span>
+          <span class="trust__num">03</span>
           <h3>A large physical showroom</h3>
           <p>See and feel the work in person at our Agrabad showroom before you commit.</p>
         </li>
         <li class="trust__item reveal">
-          <span class="trust__num">05</span>
+          <span class="trust__num">04</span>
           <h3>Delivery &amp; installation included</h3>
           <p>We bring it, we fit it, we make sure it sits right in the room.</p>
-        </li>
-        <li class="trust__item reveal">
-          <span class="trust__num">06</span>
-          <h3>Easy payment options</h3>
-          <p>Flexible terms so a bespoke piece stays within reach.</p>
-        </li>
-        <li class="trust__item reveal">
-          <span class="trust__num">07</span>
-          <h3>Trusted by hundreds</h3>
-          <p>Hundreds of happy homeowners across Chattogram and beyond.</p>
         </li>
       </ul>
 
@@ -278,7 +238,28 @@
   </section>
 
   <!-- ────────────────────────  SOCIAL PROOF  ───────────────────────── -->
-  <section class="section proof">
+  <section class="section proof" id="story">
+    <div class="shell proof__intro">
+      <!-- What used to be its own "Who We Are" section, folded in here: the
+           logo plus one line of positioning ahead of the MD quote below,
+           rather than a separate thin section between Collections and Why
+           Choose. The old second paragraph ("Founded in 2020 by...") is
+           gone entirely — it just restated milestone #1 in the timeline
+           further down and the quote's own figcaption. -->
+      <div class="proof__intro-row reveal">
+        <img class="proof__intro-logo" src="assets/img/logo-mark.png" width="528" height="196"
+             loading="lazy" decoding="async" onerror="this.hidden=true"
+             alt="Heaven Furniture Mart logo">
+        <div class="proof__intro-text">
+          <p class="eyebrow proof__intro-meta">Who we are &middot; Est. 2020 &middot; Chattogram, Bangladesh</p>
+          <p class="lede proof__intro-copy">
+            One of Chattogram's leading bespoke furniture houses — designing and crafting
+            custom furniture built around what you actually want, rather than pulled off a shelf.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div class="shell">
       <figure class="quote reveal">
         <!-- kept on one line: surrounding newlines would collapse to spaces and
@@ -429,6 +410,7 @@
       <img src="assets/img/logo-white.png" width="190" height="70" class="wordmark__img"
            decoding="async" onerror="this.hidden=true" alt="Heaven Furniture Mart">
       <p class="site-footer__tagline">Designed. Crafted. Customized.</p>
+      <p class="site-footer__note">Free design consultation · Easy payment options · Trusted by hundreds of homeowners</p>
     </div>
 
     <div class="site-footer__col">
