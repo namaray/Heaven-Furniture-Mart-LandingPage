@@ -298,24 +298,15 @@ h2 {
   gap: 2rem;
 }
 
-/* padding-block keeps the logo link above the 44px touch-target minimum */
+/* padding-block keeps the logo link above the 44px touch-target minimum.
+   The real logo replaced the type-set "Heaven / Furniture Mart" lockup —
+   two crops of the client's own artwork, background removed by hand since
+   neither came as a transparent asset: logo-black.png (dark ink, extracted
+   off a flat cream background) for this light header, logo-white.png
+   (white ink, extracted off a photograph via HSB saturation/brightness
+   masking) for the dark footer below. */
 .wordmark { text-decoration: none; line-height: 1.05; display: block; padding-block: 0.35rem; }
-.wordmark__name {
-  display: block;
-  font-family: var(--display);
-  font-size: 1.5rem;
-  letter-spacing: 0.02em;
-  color: var(--brown);
-}
-.wordmark__sub {
-  display: block;
-  font-family: var(--body);
-  font-size: 0.625rem;
-  font-weight: 500;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--brown-soft);
-}
+.wordmark__img { display: block; height: 2.25rem; width: auto; }
 
 .site-nav { display: flex; gap: 2.25rem; }
 .site-nav a {
@@ -1102,8 +1093,7 @@ h2 {
   row-gap: clamp(2rem, 4vw, 3rem);
   padding-bottom: clamp(3rem, 6vw, 4rem);
 }
-.site-footer .wordmark__name { color: var(--ivory); font-size: 1.625rem; }
-.site-footer .wordmark__sub  { color: var(--tan); }
+.site-footer .wordmark__img { height: 2.5rem; }
 .site-footer__tagline {
   margin-top: 1.1rem;
   font-size: 0.8125rem;
