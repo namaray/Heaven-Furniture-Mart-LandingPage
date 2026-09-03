@@ -306,11 +306,11 @@ h2 {
    (white ink, extracted off a photograph via HSB saturation/brightness
    masking) for the dark footer below. */
 .wordmark { text-decoration: none; line-height: 1.05; display: block; padding-block: 0.35rem; }
-.wordmark__img { display: block; height: 2.25rem; width: auto; }
+.wordmark__img { display: block; height: 2.75rem; width: auto; }
 
 .site-nav { display: flex; gap: 2.25rem; }
 .site-nav a {
-  font-size: var(--t-small);
+  font-size: 1rem;
   text-decoration: none;
   color: var(--brown-soft);
   padding-block: 0.6rem;
