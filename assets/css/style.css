@@ -533,17 +533,72 @@ h2 {
 
 /* Eases into .bespoke's solid ivory-deep directly below — this section sits
    right before it in the current order (Collections -> Why -> Bespoke). */
-.why { background: linear-gradient(180deg, var(--ivory) 0%, var(--ivory-deep) 100%); }
+.why {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--ivory) 0%, var(--ivory-deep) 100%);
+}
 
-/* Trimmed from 7 dense text blocks to 4 — explicit 2x2 rather than
-   auto-fit, since auto-fit would produce an uneven 3-then-1 row at some
-   widths with exactly four items. Headings moved to Cormorant at card-title
+/* Team photo confined to a zone under the left column only — never the full
+   section. It fades to fully transparent well before its own right edge, so
+   there's a wide safety margin before the list's dense body copy begins;
+   that text is never sitting on anything but plain ivory. Faces are the one
+   thing on this page that can't afford to look like a rendering glitch, so
+   this errs generous with the fade rather than trying to squeeze maximum
+   photo out of the space. */
+.why__bg {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 0;
+  width: 46%;
+  overflow: hidden; /* clips the img's scale(1.06) — without this, that 6%
+    overflow escapes past the veil gradient below (which is confined to this
+    same box) as a hard, unfaded strip of raw image bleeding into the list */
+  pointer-events: none;
+}
+/* First pass left this sharp — faces landed directly under the headline at
+   near-full clarity, which read as an accident rather than a deliberate
+   backdrop (the same lesson learned with the workshop clip behind the hero
+   headline). Blurred and desaturated so it reads as a warm textured presence
+   — "people were here" — rather than a legible portrait crossed by type. */
+.why__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  filter: blur(5px) saturate(0.75) brightness(1.05);
+  transform: scale(1.06); /* hides the transparent fringe the blur pulls in at the edges */
+}
+.why__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right,
+    rgba(246, 242, 234, 0.85) 0%,
+    rgba(246, 242, 234, 0.93) 35%,
+    var(--ivory) 58%,
+    var(--ivory) 100%);
+}
+
+.why__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.why__head h2 { max-width: 16ch; }
+
+/* Trimmed from 7 dense text blocks to 4, and from a 2x2 grid to a single
+   column now that the list has its own half of a left/right split rather
+   than the section's full width. Headings moved to Cormorant at card-title
    size (matching .card h3 in Collections) instead of small bold sans, so
    each point has real presence instead of reading as a spec-sheet bullet. */
-.trust {
+.trust--list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 4vw, 3.5rem);
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
 }
 
 .trust__item { padding-top: 1.75rem; border-top: 1px solid var(--rule-brass); }
@@ -571,8 +626,15 @@ h2 {
   color: var(--brown-soft);
 }
 
-@media (max-width: 620px) {
-  .trust { grid-template-columns: 1fr; }
+/* The confined-left-zone photo is a two-column device — once the layout
+   drops to one column below, the photo would sit as an odd partial-width
+   strip above a full-width heading, so it's dropped rather than reworked
+   into something that no longer matches what was actually approved. */
+@media (max-width: 760px) {
+  .why__bg { display: none; }
+  .why__inner { grid-template-columns: 1fr; }
+  .why__head { margin-bottom: 0.5rem; }
+}
 }
 
 /* --------------------------------------------------------------------------
