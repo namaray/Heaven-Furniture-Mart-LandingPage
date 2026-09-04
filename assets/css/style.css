@@ -534,73 +534,13 @@ h2 {
 /* Eases into .bespoke's solid ivory-deep directly below — this section sits
    right before it in the current order (Collections -> Why -> Bespoke). */
 .why {
-  position: relative;
-  overflow: hidden;
   background: linear-gradient(180deg, var(--ivory) 0%, var(--ivory-deep) 100%);
 }
 
-/* Photo confined to a zone under the heading column, on the left (see
-   .why__inner below). It never shares a column with the list — that text
-   is always on plain ivory regardless of how visible the photo is. Vertical
-   fade, not horizontal: strong protection immediately behind the
-   eyebrow+heading text at the top, relaxing further down the column, since
-   nothing but empty ivory used to live down there anyway — that's where the
-   photo gets to actually show. */
-.why__bg {
-  position: absolute;
-  inset: 0 auto 0 0;
-  z-index: 0;
-  width: 42%;
-  overflow: hidden; /* clips the img's scale(1.05) — without this, that
-    overflow escapes past the veil gradient below (confined to this same
-    box) as a hard, unfaded strip of raw image */
-  pointer-events: none;
-}
-/* Cropped tight to one chair (370x709, aspect ~0.52) rather than the wider
-   two-chairs-and-a-table shot — that wider crop, going into this tall
-   narrow box, put the ornate carved chair-back inside the gradient's
-   heavily-veiled top zone and left only bare legs and floor showing in the
-   more-visible zone lower down: technically "more visible" but showing the
-   least interesting part of the photo. This crop is close enough to the
-   box's own aspect that the whole chair, crown to feet, survives the cover
-   crop, so there's no boring bottom for the reveal zone to land on.
-   Blur/desaturation were originally tuned to stop faces reading as a
-   rendering glitch under the headline (see git history); no faces here,
-   but the same soft, warm texture reads well behind type regardless of
-   subject, so it's unchanged. */
-.why__bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 15%;
-  filter: blur(3px) saturate(0.85) brightness(1.03);
-  transform: scale(1.05); /* hides the transparent fringe the blur pulls in at the edges */
-}
-.why__bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  /* Stops set against measured text position, not guessed: eyebrow sits at
-     28.6% down this box, the heading's last line ends at 53.2%. Both of the
-     first two attempts here guessed the eyebrow was much closer to the top
-     than it actually is (padding-block on .section pushes .why__inner well
-     down from the box's own top edge) and left it under-protected. */
-  background: linear-gradient(to bottom,
-    rgba(246, 242, 234, 0.96) 0%,
-    rgba(246, 242, 234, 0.94) 35%,
-    rgba(246, 242, 234, 0.86) 55%,
-    rgba(246, 242, 234, 0.4) 70%,
-    rgba(246, 242, 234, 0.3) 100%);
-}
-
 .why__inner {
-  position: relative;
-  z-index: 1;
   display: grid;
   /* narrow track first, wide second — matches DOM order (heading, then
-     list), so no `order` override is needed here; the mobile breakpoint
-     below still sets order:0 explicitly, which is now a no-op left over
-     from when this was briefly mirrored to the right, but harmless. */
+     list), so no `order` override is needed here */
   grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
   gap: clamp(2rem, 5vw, 4rem);
   align-items: start;
@@ -648,7 +588,6 @@ h2 {
    strip above a full-width heading, so it's dropped rather than reworked
    into something that no longer matches what was actually approved. */
 @media (max-width: 760px) {
-  .why__bg { display: none; }
   .why__inner { grid-template-columns: 1fr; }
   .why__head { margin-bottom: 0.5rem; }
 }
